@@ -168,7 +168,7 @@ abstract class AbstractExperiment
      */
     public function setExposureLogged($value)
     {
-        $this->exposure_logged = value;
+        $this->exposure_logged = (bool) $value;
     }
 
     /**
@@ -178,7 +178,7 @@ abstract class AbstractExperiment
      */
     public function setAutoExposureLogging($value)
     {
-        $this->auto_exposure_log = $value;
+        $this->auto_exposure_log = (boolean) $value;
     }
 
     /**
