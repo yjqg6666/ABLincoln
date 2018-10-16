@@ -3,6 +3,7 @@
 namespace Vimeo\ABLincoln\Namespaces;
 
 use \Vimeo\ABLincoln\Assignment;
+use Vimeo\ABLincoln\Experiments\AbstractExperiment;
 use \Vimeo\ABLincoln\Operators\Random as Random;
 
 /**
@@ -16,10 +17,28 @@ abstract class SimpleNamespace extends AbstractNamespace
     protected $primary_unit;
     protected $num_segments;
 
+    /**
+     * @var AbstractExperiment
+     */
     private $experiment = null;
+
+    /**
+     * @var AbstractExperiment
+     */
     private $default_experiment = null;
+
+    /**
+     * @var string
+     */
     private $default_experiment_class;
+    /**
+     * @var bool
+     */
     private $in_experiment;
+
+    /**
+     * @var string[]
+     */
     private $current_experiments;
 
     private $available_segments;
@@ -106,6 +125,7 @@ abstract class SimpleNamespace extends AbstractNamespace
      * @param string $name name to give the new experiment
      * @param string $exp_class string version of experiment class to instantiate
      * @param int $num_segments number of segments to allocate to experiment
+     * @throws \Exception when invalid argument given
      */
     public function addExperiment($name, $exp_class, $num_segments)
     {
@@ -141,6 +161,7 @@ abstract class SimpleNamespace extends AbstractNamespace
      * Remove a given experiment from the namespace and free its associated segments
      *
      * @param string $name previously defined name of experiment to remove
+     * @throws \Exception when invalid argument given
      */
     public function removeExperiment($name)
     {
@@ -211,9 +232,12 @@ abstract class SimpleNamespace extends AbstractNamespace
         if (array_key_exists($segment, $this->segment_allocations)) {
             $exp_name = $this->segment_allocations[$segment];
             $experiment = new $this->current_experiments[$exp_name]($this->inputs);
+            /** @noinspection PhpUndefinedMethodInspection */
             $experiment->setName($this->name . '-' . $exp_name);
+            /** @noinspection PhpUndefinedMethodInspection */
             $experiment->setSalt($this->name . '.' . $exp_name);
             $this->experiment = $experiment;
+            /** @noinspection PhpUndefinedMethodInspection */
             $this->in_experiment = $experiment->inExperiment();
         }
 
@@ -236,7 +260,7 @@ abstract class SimpleNamespace extends AbstractNamespace
      *
      * @param string $name parameter to get the value of
      * @param string $default optional value to return if parameter undefined
-     * @return the value of the given parameter
+     * @return mixed the value of the given parameter
      */
     public function get($name, $default = null)
     {
@@ -253,7 +277,7 @@ abstract class SimpleNamespace extends AbstractNamespace
      *
      * @param string $name parameter to get the value of
      * @param string $default optional value to return if parameter undefined
-     * @return the value of the given parameter
+     * @return mixed the value of the given parameter
      */
     private function _defaultGet($name, $default = null)
     {
@@ -290,7 +314,7 @@ abstract class SimpleNamespace extends AbstractNamespace
     /**
      * Log an arbitrary event
      *
-     * @param string $eventType name of event to kig]
+     * @param string $event_type name of event to kig]
      * @param array $extras optional extra data to include in log
      */
     public function logEvent($event_type, $extras = null)

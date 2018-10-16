@@ -17,6 +17,7 @@ class BernoulliTrial extends RandomOperator
      * Calculate either 1 or 0 with a given probability
      *
      * @return int 1 with probability p, 0 otherwise
+     * @throws \Exception
      */
     protected function _simpleExecute()
     {

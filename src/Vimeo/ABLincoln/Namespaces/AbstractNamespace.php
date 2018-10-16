@@ -42,7 +42,7 @@ abstract class AbstractNamespace
      *
      * @param string $name parameter to get the value of
      * @param string $default optional value to return if parameter undefined
-     * @return the value of the given parameter
+     * @return mixed the value of the given parameter
      */
     abstract public function get($name, $default);
 

@@ -24,6 +24,7 @@ trait PSRLoggerTrait
      * gets instantiated.
      *
      * @param string $level PSR level at which to log
+     * @throws \Exception when wrong level given
      */
     public function setLogLevel($level)
     {

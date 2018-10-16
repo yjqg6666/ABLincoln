@@ -9,15 +9,34 @@ use \Vimeo\ABLincoln\Assignment;
  */
 abstract class AbstractExperiment
 {
+    /**
+     * @var string
+     */
     protected $name;
+
+    /**
+     * @var string
+     */
     protected $salt = null;
 
+    /**
+     * @var array
+     */
     protected $inputs;
+
     protected $logger_configured = false;
     protected $in_experiment = true;
+
+    /**
+     * @var Assignment
+     */
     protected $assignment;
 
+    /**
+     * @var boolean
+     */
     private $logged;
+
     private $exposure_logged = false;
     private $auto_exposure_log = true;
     private $assigned = false;
@@ -168,7 +187,7 @@ abstract class AbstractExperiment
      */
     public function setExposureLogged($value)
     {
-        $this->exposure_logged = (bool) $value;
+        $this->exposure_logged = (boolean) $value;
     }
 
     /**
@@ -218,7 +237,7 @@ abstract class AbstractExperiment
      *
      * @param string $name parameter to get the value of
      * @param string $default optional value to return if parameter undefined
-     * @return the value of the given parameter
+     * @return mixed the value of the given parameter
      */
     public function get($name, $default = null)
     {

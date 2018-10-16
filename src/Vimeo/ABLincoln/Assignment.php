@@ -10,14 +10,26 @@ use \Vimeo\ABLincoln\Operators\RandomOperator;
  */
 class Assignment
 {
-    private $experiment_salt;
+    /**
+     * @var string
+     */
+    public $experiment_salt;
+
+    /**
+     * @var array
+     */
     private $overrides;
+
+    /**
+     * @var array
+     */
     private $data;
 
     /**
      * Store the given experiment salt for future use
      *
      * @param string $experiment_salt the experiment salt to store
+     * @param array $overrides
      */
     public function __construct($experiment_salt, $overrides = [])
     {
@@ -31,6 +43,7 @@ class Assignment
      * returns the given argument but can be modified with more complex behavior
      *
      * @param mixed $value the parameter to evaluate
+     * @return mixed
      */
     public function evaluate($value)
     {

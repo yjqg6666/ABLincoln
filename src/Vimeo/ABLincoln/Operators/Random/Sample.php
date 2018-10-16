@@ -18,6 +18,7 @@ class Sample extends RandomOperator
      * Choose a random sample of choices from the parameter array
      *
      * @return array the random sample select from the parameter array
+     * @throws \Exception
      */
     protected function _simpleExecute()
     {

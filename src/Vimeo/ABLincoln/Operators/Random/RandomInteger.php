@@ -18,6 +18,7 @@ class RandomInteger extends RandomOperator
      * Calculate a random integer in the given range
      *
      * @return int the calculated random integer
+     * @throws \Exception
      */
     protected function _simpleExecute()
     {

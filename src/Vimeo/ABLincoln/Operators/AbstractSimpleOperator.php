@@ -2,6 +2,8 @@
 
 namespace Vimeo\ABLincoln\Operators;
 
+use Vimeo\ABLincoln\Assignment;
+
 /**
  * Easiest way to implement simple operators. The class automatically evaluates
  * the values of all parameters passed in via execute(), and stores the

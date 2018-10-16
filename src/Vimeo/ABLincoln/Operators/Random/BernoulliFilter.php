@@ -18,6 +18,7 @@ class BernoulliFilter extends RandomOperator
      * Filter the parameter array on each element with probability p
      *
      * @return array the filtered choices array
+     * @throws \Exception
      */
     protected function _simpleExecute()
     {

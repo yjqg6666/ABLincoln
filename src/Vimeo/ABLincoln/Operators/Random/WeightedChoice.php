@@ -18,6 +18,7 @@ class WeightedChoice extends RandomOperator
      * Choose an element with weighted probability from the parameter array
      *
      * @return mixed the element chosen from the given array
+     * @throws \Exception
      */
     protected function _simpleExecute()
     {

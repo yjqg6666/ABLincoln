@@ -18,6 +18,7 @@ class RandomFloat extends RandomOperator
      * Calculate a random floating point number in the given range
      *
      * @return float the calculated random float
+     * @throws \Exception
      */
     protected function _simpleExecute()
     {

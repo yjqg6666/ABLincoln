@@ -24,6 +24,7 @@ trait FileLoggerTrait
      * Set up Monolog logger to write to file. _configureLogger() only gets
      * called once in AbstractExperiment upon making an experiment assignment
      * so the logger will only be initialized a single time when needed.
+     * @throws \Exception
      */
     protected function _configureLogger()
     {

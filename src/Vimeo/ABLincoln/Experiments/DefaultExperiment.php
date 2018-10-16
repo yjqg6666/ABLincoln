@@ -2,6 +2,8 @@
 
 namespace Vimeo\ABLincoln\Experiments;
 
+use Vimeo\ABLincoln\Assignment;
+
 /**
  * Dummy experiment which has no logging. Default experiments used by
  * namespaces should inherit from this class.

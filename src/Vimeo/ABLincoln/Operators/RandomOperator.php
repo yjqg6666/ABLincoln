@@ -63,8 +63,9 @@ abstract class RandomOperator extends AbstractSimpleOperator
     /**
      * Get a random decimal between two provided values
      *
-     * @param float $min_value start value for random number range
-     * @param float $max_value end value for random number range
+     * @param float $min_val start value for random number range
+     * @param float $max_val end value for random number range
+     * @param mixed $appended_unit
      * @return float random number between the two provided values
      */
     protected function _getUniform($min_val = 0.0, $max_val = 1.0,
