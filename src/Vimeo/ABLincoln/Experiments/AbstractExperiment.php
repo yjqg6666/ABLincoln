@@ -211,7 +211,7 @@ abstract class AbstractExperiment
         $this->_requiresAssignment();
         $ret = [
             'name' => $this->name,
-            'time' => time(),
+            'time' => microtime(true),
             'salt' => $this->salt(),
             'inputs' => $this->inputs,
             'params' => $this->assignment->asArray()
